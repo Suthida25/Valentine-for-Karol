@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dla Karol ❤️</title>
+  <title>Dla Walentynki Karol ❤️</title>
 
   <style>
     body {
@@ -50,9 +50,77 @@
 
     audio {
       display: none;
-    }
-  </style>
-</head>
+    } 
+    .secret {
+  display: none;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #d6336c;
+  animation: pop 0.6s ease-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+} 
+    .heart {
+  position: fixed;
+  bottom: 0;
+  font-size: 24px;
+  animation: floatUp 2s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(1.5);
+    opacity: 0;
+  }
+}
+ </style>
+</head> 
+  <script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 2000);
+}
+</script> 
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 2000);
+}
+</script>
 <body>
 
   <div class="card">
@@ -66,8 +134,14 @@
       bo miłość nie zna granic 💕
     </p>
 
-    <button onclick="showLove()">Kliknij mnie 💘</button>
-  </div>
+    <button onclick="showSecret(); createHeart();">
+  Kliknij mnie 💘
+</button>
+  </div>  
+  <div id="secret" class="secret">
+  Kocham Cię dziś, jutro i zawsze ❤️  
+  Jesteś moim sercem 💕
+</div>
 
   <audio autoplay loop>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -78,6 +152,11 @@
       alert("Karol, nieważne jak daleko jesteśmy ❤️\nZawsze wybieram Ciebie 🥰");
     }
   </script>
+  <script>
+  function showMessage() {
+    document.getElementById("secret").style.display = "block";
+  }
+</script>
 
 </body>
 </html>
