@@ -93,7 +93,7 @@
  </style>
 </head> 
   <script>
-function createHeart() {
+function createHeart() { setInterval(createHeart, 400);
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "❤️";
